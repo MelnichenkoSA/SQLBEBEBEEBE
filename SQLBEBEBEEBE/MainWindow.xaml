@@ -1,0 +1,66 @@
+﻿<Window x:Class="SQLBEBEBEEBE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLBEBEBEEBE"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl>
+            <TabItem Width="100" Header="Роли">
+                <DataGrid AutoGenerateColumns="False" x:Name="RoleGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Width="100" Header="Юзеры">
+                <DataGrid AutoGenerateColumns="False" x:Name="UserGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding UserID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding UserSurname}" Header="Фамилия" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding UserName}" Header="Имя" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding UserPatronymic}" Header="Отчество" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding UserLogin}" Header="Логин" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding UserPassword}" Header="Пароль" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding UserRole}" Header="Роль" Width="125"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Width="100" Header="Пункты выдачи">
+                <DataGrid AutoGenerateColumns="False" x:Name="PickupGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Width="100" Header="Продукты">
+                <DataGrid AutoGenerateColumns="False" x:Name="ProductGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Width="100" Header="Заказы">
+                <DataGrid AutoGenerateColumns="False" x:Name="OrderGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Width="120" Header="Продукты в заказе">
+                <DataGrid AutoGenerateColumns="False" x:Name="OrderProductGrid">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SQLBEBEBEEBE"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Интерфейс Товары" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <TabControl>
             <TabItem Width="100" Header="Роли">
@@ -32,32 +32,42 @@
             <TabItem Width="100" Header="Пункты выдачи">
                 <DataGrid AutoGenerateColumns="False" x:Name="PickupGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding PointID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding PointAddress}" Header="Адрес" Width="125"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
             <TabItem Width="100" Header="Продукты">
                 <DataGrid AutoGenerateColumns="False" x:Name="ProductGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductArticleNumber}" Header="Артикул" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding ProductName}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductDescription}" Header="Описание" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductCategory}" Header="Категория" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductPhoto}" Header="Фото" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductManufacturer}" Header="Производитель" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductCost}" Header="Стоимость" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductDiscountAmount}" Header="Скидка" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding ProductQuantityInStock}" Header="Кол-во" Width="125"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
             <TabItem Width="100" Header="Заказы">
                 <DataGrid AutoGenerateColumns="False" x:Name="OrderGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding OrderID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding OrderStatus}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding OrderDeliveryDate}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding OrderPickupPoint}" Header="Название" Width="125"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
             <TabItem Width="120" Header="Продукты в заказе">
                 <DataGrid AutoGenerateColumns="False" x:Name="OrderProductGrid">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding RoleID}" Header="ID" Width="120"/>
-                        <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding OrderID}" Header="ID" Width="120"/>
+                        <DataGridTextColumn Binding="{Binding ProductArticleNumber}" Header="Название" Width="125"/>
+                        <DataGridTextColumn Binding="{Binding NumberProduct}" Header="Название" Width="125"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>

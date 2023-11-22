@@ -8,6 +8,9 @@
         Title="Интерфейс Товары" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <TabControl>
+            <TabItem Width="100" Header="Авторизация">
+                <Button Width="100" Height="30" Content="Авторизация" Click="Login_Click" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </TabItem>
             <TabItem Width="100" Header="Роли">
                 <DataGrid AutoGenerateColumns="False" x:Name="RoleGrid">
                     <DataGrid.Columns>

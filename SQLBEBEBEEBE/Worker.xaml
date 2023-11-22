@@ -1,0 +1,54 @@
+﻿<Window x:Class="SQLBEBEBEEBE.Worker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLBEBEBEEBE"
+        mc:Ignorable="d"
+        Title="Worker" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0">Добавление товара</TextBlock>
+
+        <TextBlock Grid.Row="1">Актикул</TextBlock>
+        <TextBox Name="ArtikulBox" Grid.Row="1" Grid.Column="1" MinWidth="150">Актикул</TextBox>
+        <TextBlock Grid.Row="2">Название</TextBlock>
+        <TextBox Name="NameBox" Grid.Row="2" Grid.Column="1" MinWidth="150">Название</TextBox>
+        <TextBlock Grid.Row="3">Описание</TextBlock>
+        <TextBox Name="OpisBox" Grid.Row="3" Grid.Column="1" MinWidth="150">Описание</TextBox>
+        <TextBlock Grid.Row="4">Категория</TextBlock>
+        <TextBox Name="KatBox" Grid.Row="4" Grid.Column="1" MinWidth="150">Категория</TextBox>
+        <TextBlock Grid.Row="5">Фото</TextBlock>
+        <TextBox Name="FotoBox" Grid.Row="5" Grid.Column="1" MinWidth="150">Фото</TextBox>
+        <TextBlock Grid.Row="6">Производитель</TextBlock>
+        <TextBox Name="CreatorBox" Grid.Row="6" Grid.Column="1" MinWidth="150">Производитель</TextBox>
+        <TextBlock Grid.Row="7">Стоимость</TextBlock>
+        <TextBox Name="CostBox" Grid.Row="7" Grid.Column="1" MinWidth="150">Стоимость</TextBox>
+        <TextBlock Grid.Row="8">Скидка</TextBlock>
+        <TextBox Name="SaleBox" Grid.Row="8" Grid.Column="1" MinWidth="150">Скидка</TextBox>
+        <TextBlock Grid.Row="9">Кол-во</TextBlock>
+        <TextBox Name="KolVoBox" Grid.Row="9" Grid.Column="1" MinWidth="150">Кол-во</TextBox>
+        
+        <WrapPanel Grid.Row="10" HorizontalAlignment="Right" Margin="0,15,0,0" Width="140">
+            <Button IsDefault="True" Click="Button_Click" MinWidth="60" Margin="0,0,10,0">OK</Button>
+            <Button IsCancel="True" MinWidth="60">Отмена</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

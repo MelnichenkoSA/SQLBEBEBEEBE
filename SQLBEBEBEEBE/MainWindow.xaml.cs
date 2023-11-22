@@ -19,6 +19,7 @@ namespace SQLBEBEBEEBE
         DataTable ProductTrade;
         DataTable OrderTrade;
         DataTable OrderProductTrade;
+        DataTable Userki;
 
 
         public MainWindow()
@@ -27,6 +28,30 @@ namespace SQLBEBEBEEBE
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         }
 
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            Autorize passwordWindow = new Autorize();
+
+            if (passwordWindow.ShowDialog() == true)
+            {
+                DataTable Logsword = Select("SELECT * FROM [User] WHERE UserLogin = '" + passwordWindow.Login + "' AND UserPassword = '" + passwordWindow.Password + "'");
+                if (Logsword.Rows.Count > 0)
+                {
+                    DataTable userRole = Select("select UserRole from [User] where UserLogin = '" + passwordWindow.Login + "'");
+                    int i = Convert.ToInt32(userRole.Rows[0][0]);
+                    DataTable role = Select("select * from Role where RoleId = '" + i + "'");
+                    string j = Convert.ToString(role.Rows[0][1]);
+                    MessageBox.Show("Авторизация пройдена, ваша роль: " + j);
+
+                }
+                else
+                    MessageBox.Show("Неверный пароль или логин");
+            }
+            else
+            {
+                MessageBox.Show("Авторизация не пройдена");
+            }
+        }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             Role();
@@ -69,7 +94,6 @@ namespace SQLBEBEBEEBE
                     connection.Close();
             }
         }
-
         public void User()
         {
             string sql = "SELECT * FROM [User]";
@@ -234,6 +258,21 @@ namespace SQLBEBEBEEBE
                 if (connection != null)
                     connection.Close();
             }
+        }
+        public DataTable Select(string sql)
+        {
+            Userki = new DataTable();
+            SqlConnection connection = null;
+            connection = new SqlConnection(connectionString);
+            SqlCommand command = new SqlCommand(sql, connection);
+            adapter = new SqlDataAdapter(command);
+
+            adapter.InsertCommand = new SqlCommand("sp_InsertUserki", connection);
+            adapter.InsertCommand.CommandType = CommandType.StoredProcedure;
+
+            connection.Open();
+            adapter.Fill(Userki);
+            return Userki;
         }
     }
 }

@@ -28,26 +28,26 @@
         <TextBlock Grid.Row="0">Добавление товара</TextBlock>
 
         <TextBlock Grid.Row="1">Актикул</TextBlock>
-        <TextBox Name="ArtikulBox" Grid.Row="1" Grid.Column="1" MinWidth="150">Актикул</TextBox>
+        <TextBox Name="ArtikulBox" Grid.Row="1" Grid.Column="1" MinWidth="150" Text="{Binding SelectedArticle}"></TextBox>
         <TextBlock Grid.Row="2">Название</TextBlock>
-        <TextBox Name="NameBox" Grid.Row="2" Grid.Column="1" MinWidth="150">Название</TextBox>
+        <TextBox Name="NameBox" Grid.Row="2" Grid.Column="1" MinWidth="150" Text="{Binding SelectedName}"></TextBox>
         <TextBlock Grid.Row="3">Описание</TextBlock>
-        <TextBox Name="OpisBox" Grid.Row="3" Grid.Column="1" MinWidth="150">Описание</TextBox>
+        <TextBox Name="OpisBox" Grid.Row="3" Grid.Column="1" MinWidth="150" Text="{Binding SelectedDescription}"></TextBox>
         <TextBlock Grid.Row="4">Категория</TextBlock>
-        <TextBox Name="KatBox" Grid.Row="4" Grid.Column="1" MinWidth="150">Категория</TextBox>
+        <TextBox Name="KatBox" Grid.Row="4" Grid.Column="1" MinWidth="150" Text="{Binding SelectedCategory}"></TextBox>
         <TextBlock Grid.Row="5">Фото</TextBlock>
-        <TextBox Name="FotoBox" Grid.Row="5" Grid.Column="1" MinWidth="150">Фото</TextBox>
+        <TextBox Name="FotoBox" Grid.Row="5" Grid.Column="1" MinWidth="150" Text="{Binding SelectedPhoto}"></TextBox>
         <TextBlock Grid.Row="6">Производитель</TextBlock>
-        <TextBox Name="CreatorBox" Grid.Row="6" Grid.Column="1" MinWidth="150">Производитель</TextBox>
+        <TextBox Name="CreatorBox" Grid.Row="6" Grid.Column="1" MinWidth="150" Text="{Binding SelectedManufacturer}"></TextBox>
         <TextBlock Grid.Row="7">Стоимость</TextBlock>
-        <TextBox Name="CostBox" Grid.Row="7" Grid.Column="1" MinWidth="150">Стоимость</TextBox>
+        <TextBox Name="CostBox" Grid.Row="7" Grid.Column="1" MinWidth="150" Text="{Binding SelectedCost}"></TextBox>
         <TextBlock Grid.Row="8">Скидка</TextBlock>
-        <TextBox Name="SaleBox" Grid.Row="8" Grid.Column="1" MinWidth="150">Скидка</TextBox>
+        <TextBox Name="SaleBox" Grid.Row="8" Grid.Column="1" MinWidth="150" Text="{Binding SelectedDiscountAmount}"></TextBox>
         <TextBlock Grid.Row="9">Кол-во</TextBlock>
-        <TextBox Name="KolVoBox" Grid.Row="9" Grid.Column="1" MinWidth="150">Кол-во</TextBox>
+        <TextBox Name="KolVoBox" Grid.Row="9" Grid.Column="1" MinWidth="150" Text="{Binding SelectedQuantity}"></TextBox>
         
         <WrapPanel Grid.Row="10" HorizontalAlignment="Right" Margin="0,15,0,0" Width="140">
-            <Button IsDefault="True" Click="Button_Click" MinWidth="60" Margin="0,0,10,0">OK</Button>
+            <Button IsDefault="True" Command="{Binding AddProductCommand}" MinWidth="60" Margin="0,0,10,0">OK</Button>
             <Button IsCancel="True" MinWidth="60">Отмена</Button>
         </WrapPanel>
     </Grid>

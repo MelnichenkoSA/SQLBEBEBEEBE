@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SQLBEBEBEEBE"
         mc:Ignorable="d"
-        Title="Авторизация" Height="200" Width="150" WindowStartupLocation="CenterScreen">
+        Title="Авторизация" Height="300" Width="250" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>

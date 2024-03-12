@@ -10,15 +10,17 @@ namespace SQLBEBEBEEBE.ViewModel
 {
     internal class MainViewModel
     {
-        public int article;
-        public string name;
-        public string description;
-        public string category;
-        public string photo;
-        public string manufacturer;
-        public int cost;
-        public int discountAmount;
-        public int quantity;
+        public int selectedArticle;
+        public string selectedItem;
+
+        public string selectedName;
+        public string selectedDescription;
+        public string selectedCategory;
+        public string selectedPhoto;
+        public string selectedManufacturer;
+        public int selectedCost;
+        public int selectedDiscountAmount;
+        public int selectedQuantity;
 
         private RelayCommand addProductCommand;
         private RelayCommand updateProductCommand;
@@ -31,7 +33,7 @@ namespace SQLBEBEBEEBE.ViewModel
                 return addProductCommand ??
                   (addProductCommand = new RelayCommand(obj =>
                   {
-                      Product NewProduct = new Product(article, name, description, category, photo, manufacturer, cost, discountAmount, quantity);
+                      Product NewProduct = new Product(selectedArticle, selectedName, selectedDescription, selectedCategory, selectedPhoto, selectedManufacturer, selectedCost, selectedDiscountAmount, selectedQuantity);
 
                       AddProduct(NewProduct);
 

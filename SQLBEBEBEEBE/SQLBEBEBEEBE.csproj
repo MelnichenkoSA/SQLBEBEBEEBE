@@ -56,8 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderProduct.cs" />
+    <Compile Include="Model\PickupPoint.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Model\RelayCommand.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\Worker.xaml.cs">
       <DependentUpon>Worker.xaml</DependentUpon>

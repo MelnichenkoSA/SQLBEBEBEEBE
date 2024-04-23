@@ -1,93 +1,92 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Microsoft.EntityFrameworkCore;
 using SQLBEBEBEEBE.Model;
 
 namespace SQLBEBEBEEBE.ViewModel
 {
     internal class MainViewModel
     {
-        public int selectedArticle;
-        public string selectedItem;
-
-        public string selectedName;
-        public string selectedDescription;
-        public string selectedCategory;
-        public string selectedPhoto;
-        public string selectedManufacturer;
-        public int selectedCost;
-        public int selectedDiscountAmount;
-        public int selectedQuantity;
-
-        private RelayCommand addProductCommand;
-        private RelayCommand updateProductCommand;
-        private RelayCommand deleteProductCommand;
-
-        public RelayCommand AddProductCommand
+        BDContext db = new BDContext();
+        RelayCommand addCommand;
+        RelayCommand editCommand;
+        RelayCommand deleteCommand;
+        public ObservableCollection<User> Users { get; set; }
+        public MainViewModel()
+        {
+            db.Database.EnsureCreated();
+            db.Users.Load();
+            Users = db.Users.Local.ToObservableCollection();
+        }
+        // команда добавления
+        public RelayCommand AddCommand
         {
             get
             {
-                return addProductCommand ??
-                  (addProductCommand = new RelayCommand(obj =>
+                return addCommand ??
+                  (addCommand = new RelayCommand((o) =>
                   {
-                      Product NewProduct = new Product(selectedArticle, selectedName, selectedDescription, selectedCategory, selectedPhoto, selectedManufacturer, selectedCost, selectedDiscountAmount, selectedQuantity);
-
-                      AddProduct(NewProduct);
-
+                      /*UserWindow userWindow = new UserWindow(new User());
+                      if (userWindow.ShowDialog() == true)
+                      {
+                          User user = userWindow.User;
+                          db.Users.Add(user);
+                          db.SaveChanges();
+                      }*/
                   }));
             }
         }
-        public string AddProduct(Product NewProduct)
-        {
-            string Add;
-            Add = $"INSERT INTO Product VALUES({NewProduct.Article},'{NewProduct.Name}','{NewProduct.Description}','{NewProduct.Category}','{NewProduct.Photo}','{NewProduct.Manufacturer}',{NewProduct.Cost},{NewProduct.DiscountAmount},{NewProduct.Quantity})";
-            return Add ;
-        }
-
-        public RelayCommand UpdateProductCommand
+        // команда редактирования
+        public RelayCommand EditCommand
         {
             get
             {
-                return updateProductCommand ??
-                  (updateProductCommand = new RelayCommand(obj =>
+                return editCommand ??
+                  (editCommand = new RelayCommand((selectedItem) =>
                   {
-                      //SelectedArticle = selectedArticle;
-                      //SelectedItem = selectedItem;
+                      // получаем выделенный объект
+                      /*User user = selectedItem as User;
+                      if (user == null) return;
 
-                      UpdateProduct();
+                      User vm = new User
+                      {
+                          Id = user.Id,
+                          Name = user.Name,
+                          Age = user.Age
+                      };
+                      UserWindow userWindow = new UserWindow(vm);
 
+
+                      if (userWindow.ShowDialog() == true)
+                      {
+                          user.Name = userWindow.User.Name;
+                          user.Age = userWindow.User.Age;
+                          db.Entry(user).State = EntityState.Modified;
+                          db.SaveChanges();
+                      }*/
                   }));
             }
         }
-        public string UpdateProduct()
-        {
-            string Add;
-            Add = $"UPDATE Product SET )";
-            return Add;
-        }
-
-        public RelayCommand DeleteProductCommand
+        // команда удаления
+        public RelayCommand DeleteCommand
         {
             get
             {
-                return deleteProductCommand ??
-                  (deleteProductCommand = new RelayCommand(obj =>
+                return deleteCommand ??
+                  (deleteCommand = new RelayCommand((selectedItem) =>
                   {
-                      //SelectedArticle = selectedArticle;
-
-                      DeleteProduct();
-
+                      // получаем выделенный объект
+                      /*User user = selectedItem as User;
+                      if (user == null) return;
+                      db.Users.Remove(user);
+                      db.SaveChanges();*/
                   }));
             }
-        }
-        public string DeleteProduct()
-        {
-            string Add;
-            Add = $"DELETE FROM Product WHERE Article = SelectedArticle)";
-            return Add;
         }
     }
 

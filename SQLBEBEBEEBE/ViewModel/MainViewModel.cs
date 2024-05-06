@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Microsoft.EntityFrameworkCore;
 using SQLBEBEBEEBE.Model;
+using SQLBEBEBEEBE.View;
 
 namespace SQLBEBEBEEBE.ViewModel
 {
@@ -31,13 +32,13 @@ namespace SQLBEBEBEEBE.ViewModel
                 return addCommand ??
                   (addCommand = new RelayCommand((o) =>
                   {
-                      /*UserWindow userWindow = new UserWindow(new User());
+                      UserWindow userWindow = new UserWindow(new User());
                       if (userWindow.ShowDialog() == true)
                       {
                           User user = userWindow.User;
                           db.Users.Add(user);
                           db.SaveChanges();
-                      }*/
+                      }
                   }));
             }
         }
@@ -50,25 +51,30 @@ namespace SQLBEBEBEEBE.ViewModel
                   (editCommand = new RelayCommand((selectedItem) =>
                   {
                       // получаем выделенный объект
-                      /*User user = selectedItem as User;
+                      User user = selectedItem as User;
                       if (user == null) return;
 
                       User vm = new User
                       {
-                          Id = user.Id,
-                          Name = user.Name,
-                          Age = user.Age
+                          UserSurname = user.UserSurname,
+                          UserName = user.UserName,
+                          UserPatronymic = user.UserPatronymic,
+                          UserLogin = user.UserLogin,
+                          UserPassword = user.UserPassword
                       };
                       UserWindow userWindow = new UserWindow(vm);
 
 
                       if (userWindow.ShowDialog() == true)
                       {
-                          user.Name = userWindow.User.Name;
-                          user.Age = userWindow.User.Age;
+                          user.UserSurname = userWindow.UserSurname,
+                          user.UserName = userWindow.UserName,
+                          user.UserPatronymic = userWindow.UserPatronymic,
+                          user.UserLogin = userWindow.UserLogin,
+                          user.UserPassword = userWindow.UserPassword
                           db.Entry(user).State = EntityState.Modified;
                           db.SaveChanges();
-                      }*/
+                      }
                   }));
             }
         }
@@ -81,10 +87,10 @@ namespace SQLBEBEBEEBE.ViewModel
                   (deleteCommand = new RelayCommand((selectedItem) =>
                   {
                       // получаем выделенный объект
-                      /*User user = selectedItem as User;
+                      User user = selectedItem as User;
                       if (user == null) return;
                       db.Users.Remove(user);
-                      db.SaveChanges();*/
+                      db.SaveChanges();
                   }));
             }
         }

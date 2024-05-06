@@ -1,0 +1,55 @@
+﻿<Window x:Class="SQLBEBEBEEBE.View.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SQLBEBEBEEBE.View"
+        mc:Ignorable="d"
+        Title="UserWindow" Height="600" Width="300">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="8" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinWidth" Value="60" />
+            <Setter Property="Margin" Value="8" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Фамилия" />
+        <TextBlock Text="Имя" Grid.Row="1" />
+        <TextBlock Text="Отчество" Grid.Row="2"/>
+        <TextBlock Text="Логин" Grid.Row="3" />
+        <TextBlock Text="Пароль" Grid.Row="4"/>
+        <TextBlock Text="Возраст" Grid.Row="5" />
+
+        <TextBox Text="{Binding UserSurname}" Grid.Column="1" Grid.Row="0"/>
+        <TextBox Text="{Binding UserName}" Grid.Column="1" Grid.Row="1" />
+        <TextBox Text="{Binding UserPatronymic}" Grid.Column="1" Grid.Row="2"/>
+        <TextBox Text="{Binding UserLogin}" Grid.Column="1" Grid.Row="3" />
+        <TextBox Text="{Binding UserPassword}" Grid.Column="1" Grid.Row="4"/>
+        <TextBox Text="{Binding UserRole}" Grid.Column="1" Grid.Row="5" />
+        
+
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="6" Grid.Column="1">
+            <Button IsDefault="True" Click="Accept_Click" >OK</Button>
+            <Button IsCancel="True" >Отмена</Button>
+        </StackPanel>
+    </Grid>
+</Window>

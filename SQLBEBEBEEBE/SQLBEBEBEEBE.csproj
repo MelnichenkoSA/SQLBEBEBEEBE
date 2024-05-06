@@ -168,6 +168,9 @@
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Worker.xaml.cs">
       <DependentUpon>Worker.xaml</DependentUpon>
     </Compile>
@@ -190,6 +193,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Worker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

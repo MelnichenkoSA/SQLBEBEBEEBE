@@ -9,8 +9,9 @@
     <Grid>
         <TabControl>
             <TabItem Width="100" Header="Авторизация">
-                <Button Width="100" Height="30" Content="Авторизация" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Width="100" Height="30" Content="Авторизация" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click"/>
             </TabItem>
+            <!--
             <TabItem Width="100" Header="Роли">
                 <DataGrid AutoGenerateColumns="False" x:Name="RoleGrid">
                     <DataGrid.Columns>
@@ -18,9 +19,17 @@
                         <DataGridTextColumn Binding="{Binding RoleName}" Header="Название" Width="125"/>
                     </DataGrid.Columns>
                 </DataGrid>
-            </TabItem>
+            </TabItem>-->
             <TabItem Width="100" Header="Юзеры">
-                <DataGrid AutoGenerateColumns="False" x:Name="UserGrid">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button Width="100" Height="30" Content="Изменить" Command="{Binding EditCommand}"/>
+                    <Button Width="100" Height="30" Content="Удалить" Command="{Binding DeleteCommand}" Margin="638,5,56,5"/>
+                    <Button Width="100" Height="30" Content="Добавить" Command="{Binding AddCommand}" Margin="99,5,595,5"/>
+                    <DataGrid AutoGenerateColumns="False" x:Name="UserGrid" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding UserID}" Header="ID" Width="120"/>
                         <DataGridTextColumn Binding="{Binding UserSurname}" Header="Фамилия" Width="125"/>
@@ -31,6 +40,7 @@
                         <DataGridTextColumn Binding="{Binding UserRole}" Header="Роль" Width="125"/>
                     </DataGrid.Columns>
                 </DataGrid>
+                </Grid>
             </TabItem>
             <TabItem Width="100" Header="Пункты выдачи">
                 <DataGrid AutoGenerateColumns="False" x:Name="PickupGrid">

@@ -20,8 +20,8 @@ namespace SQLBEBEBEEBE.View
     /// </summary>
     public partial class UserWindow : Window
     {
-        private User User { get; set; }
-        private UserWindow(User user)
+        public User User { get; set; }
+        public UserWindow(User user)
         {
             InitializeComponent();
             User = user;

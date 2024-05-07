@@ -67,11 +67,11 @@ namespace SQLBEBEBEEBE.ViewModel
 
                       if (userWindow.ShowDialog() == true)
                       {
-                          user.UserSurname = userWindow.UserSurname,
-                          user.UserName = userWindow.UserName,
-                          user.UserPatronymic = userWindow.UserPatronymic,
-                          user.UserLogin = userWindow.UserLogin,
-                          user.UserPassword = userWindow.UserPassword
+                          user.UserSurname = userWindow.User.UserSurname;
+                          user.UserName = userWindow.User.UserName;
+                          user.UserPatronymic = userWindow.User.UserPatronymic;
+                          user.UserLogin = userWindow.User.UserLogin;
+                          user.UserPassword = userWindow.User.UserPassword;
                           db.Entry(user).State = EntityState.Modified;
                           db.SaveChanges();
                       }

@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace SQLBEBEBEEBE.Model
 {
-    internal class User: INotifyPropertyChanged
+    public class User: INotifyPropertyChanged
     {
         private string UserID { get; set; }
         private string userSurname;

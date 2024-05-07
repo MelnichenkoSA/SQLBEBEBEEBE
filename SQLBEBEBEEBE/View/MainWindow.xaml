@@ -9,7 +9,7 @@
     <Grid>
         <TabControl>
             <TabItem Width="100" Header="Авторизация">
-                <Button Width="100" Height="30" Content="Авторизация" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click"/>
+                <Button Width="100" Height="30" Content="Авторизация" VerticalAlignment="Center" HorizontalAlignment="Center" />
             </TabItem>
             <!--
             <TabItem Width="100" Header="Роли">

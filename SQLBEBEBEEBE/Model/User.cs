@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+
 namespace SQLBEBEBEEBE.Model
 {
     public class User: INotifyPropertyChanged
     {
-        private string UserID { get; set; }
+
+        [Key] private int userID;
         private string userSurname;
         private string userName;
         private string userPatronymic;
@@ -19,6 +22,15 @@ namespace SQLBEBEBEEBE.Model
         private string userPassword;
         private int userRole;
 
+        public int UserID
+        {
+            get { return userID; }
+            set
+            {
+                userID = value;
+                OnPropertyChanged("UserSurname");
+            }
+        }
         public string UserSurname
         {
             get { return userSurname; }

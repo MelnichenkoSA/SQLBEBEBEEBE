@@ -14,5 +14,6 @@ namespace SQLBEBEBEEBE.Model
         {
             optionsBuilder.UseSqlite("Data Source=\"DefaultConnection\"");
         }
+
     }
 }

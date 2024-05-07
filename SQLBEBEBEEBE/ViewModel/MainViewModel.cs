@@ -17,12 +17,38 @@ namespace SQLBEBEBEEBE.ViewModel
         RelayCommand addCommand;
         RelayCommand editCommand;
         RelayCommand deleteCommand;
+        RelayCommand autorizeCommand;
         public ObservableCollection<User> Users { get; set; }
         public MainViewModel()
         {
             db.Database.EnsureCreated();
             db.Users.Load();
             Users = db.Users.Local.ToObservableCollection();
+        }
+        public RelayCommand AutorizeCommand
+        {
+            get
+            {
+                return autorizeCommand ??
+                  (addCommand = new RelayCommand((o) =>
+                  {
+                      Autorize autorizeWindow = new Autorize();
+                      if (autorizeWindow.ShowDialog() == true)
+                      {
+                          foreach(User user in db.Users)
+                          {
+                              if(autorizeWindow.Login==user.UserLogin)
+                              {
+                                  if(autorizeWindow.Password==user.UserPassword) 
+                                  { 
+                                      MainWindow mainWindow = new MainWindow();
+                                      mainWindow.Show();
+                                  }
+                              }
+                          }
+                      }
+                  }));
+            }
         }
         // команда добавления
         public RelayCommand AddCommand
